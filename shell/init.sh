@@ -12,6 +12,7 @@ sudo pacman -Syyu
 sudo pacman -S --needed --noconfirm yay
 yay -S --needed --noconfirm google-chrome visual-studio-code-bin notion-app rustup bind-tools git
 
+git config --global init.defaultBranch main
 git config --global core.hooksPath "$(realpath ../git-hooks/)"
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 
