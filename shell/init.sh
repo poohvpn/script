@@ -11,6 +11,8 @@ cd $scriptDir
 
 sudo bash ./no-password-everywhere.sh
 
+sudo systemctl enable --now systemd-timesyncd.service
+
 sudo pacman-mirrors --geoip
 sudo pacman -Syyu --noconfirm
 sudo pacman -R --noconfirm thunderbird mousepad firefox || true
