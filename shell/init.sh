@@ -4,6 +4,10 @@ exit
 fi
 
 set -x
+set -e
+
+scriptDir=$(dirname "$0")
+cd $scriptDir
 
 sudo bash ./no-password-everywhere.sh
 
@@ -17,6 +21,10 @@ git config --global core.hooksPath "$(realpath ../git-hooks/)"
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 
 binDir=$(realpath ../bin)
-if [ -z "$(grep "$binDir" ~/.zshrc )" ]; then
-    echo "path+=($binDir)">>~/.zshrc
-fi
+for v in "path+=($binDir)"\
+  "export GOPRIVATE=github.com/poohvpn";
+do
+  if ! grep -q "$v" ~/.zshrc; then
+      echo "$v" >> ~/.zshrc
+  fi
+done
