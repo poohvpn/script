@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ -z "${GIT_COMMITTER_DATE:-}" ]; then
+  d="$(TZ="Asia/Hong_Kong" date -d -11654days)"
+  GIT_COMMITTER_DATE="$d" git commit --amend --date "$d" --no-edit
+fi
