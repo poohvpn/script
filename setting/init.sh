@@ -30,7 +30,8 @@ git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 
 binDir=$(realpath ../bin)
 for v in "path+=($binDir)"\
-  "export GOPRIVATE=github.com/poohvpn";
+  "export GOPRIVATE=github.com/poohvpn"\
+  "unsetopt correct";
 do
   if ! grep -q "$v" ~/.zshrc; then
       echo "$v" >> ~/.zshrc
