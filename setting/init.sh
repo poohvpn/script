@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [ "$(id -u)" -eq 0 ];then
 echo "don't run with sudo!"
 exit
@@ -17,7 +19,8 @@ sudo pacman-mirrors --geoip
 sudo pacman -Syyu --noconfirm
 sudo pacman -R --noconfirm thunderbird mousepad firefox || true
 sudo pacman -S --needed --noconfirm yay base-devel
-yay -S --needed --noconfirm google-chrome visual-studio-code-bin notion-app rustup bind-tools git syncthing syncthing-gtk-python3
+yay -S --needed --noconfirm google-chrome visual-studio-code-bin notion-app rustup bind-tools git \
+  syncthing syncthing-gtk-python3
 
 sudo systemctl enable --now syncthing@$USER.service
 
