@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "zx": "^1.14.1"
+  }
+}
