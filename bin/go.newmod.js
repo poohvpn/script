@@ -1,10 +1,5 @@
 #!/usr/bin/env zx
-
-import 'zx'
-import {createRequire} from 'module';
-
-const require = createRequire(import.meta.url);
-const path = require("path");
+import path from 'path';
 
 $.verbose = false;
 
