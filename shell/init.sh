@@ -4,15 +4,18 @@ exit
 fi
 
 set -x
-set -e
 
-sudo bash ./nopasswordeverywhere.sh
+sudo bash ./no-password-everywhere.sh
 
-## oh my zsh
-if [ ! -d ~/.oh-my-zsh ]; then
-	KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+sudo pacman -R --noconfirm thunderbird mousepad firefox
+sudo pacman -Syyu
+sudo pacman -S --needed --noconfirm yay
+yay -S --needed --noconfirm google-chrome visual-studio-code-bin notion-app rustup bind-tools git
+
+git config --global core.hooksPath "$(realpath ../git-hooks/)"
+git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+
+binDir=$(realpath ../bin)
+if [ -z "$(grep "$binDir" ~/.zshrc )" ]; then
+    echo "path+=($binDir)">>~/.zshrc
 fi
-
-git config --global core.hooksPath `realpath ../git-hooks/`
