@@ -23,14 +23,14 @@ const modname = name => {
     return path.normalize(mod);
 }
 let mod = modname(name);
-let goversion = (await $`go env GOVERSION`).toString().trim().replace(/^go(\d+\.\d+)\.\d+/, "$1");
+let goVersion = (await $`go env GOVERSION`).toString().trim().replace(/^go(\d+\.\d+)(\.\d+)?/, "$1");
 
 await $`mkdir -p ${name}`;
 await cd(name);
 await $`{
     echo module ${mod};
     echo;
-    echo go ${goversion}
+    echo go ${goVersion}
 } > go.mod`
 await $`git init`
 await $`echo '# Binaries for programs and plugins
@@ -51,4 +51,3 @@ await $`echo '# Binaries for programs and plugins
 
 # Jetbrains IDE
 .idea/' > .gitignore`
-
