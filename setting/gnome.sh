@@ -5,3 +5,5 @@ gsettings set "$customKeyPrefix/custom0/" command 'gnome-terminal'
 gsettings set "$customKeyPrefix/custom0/" binding '<Primary><Alt>t'
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$customKey/custom0/']"
+
+gsettings set org.gnome.mutter center-new-windows true
