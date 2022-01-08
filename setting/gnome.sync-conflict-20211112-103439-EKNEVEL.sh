@@ -14,7 +14,7 @@ gnome-extensions disable pamac-updates@manjaro.org
 gnome-extensions disable dash-to-dock@micxgx.gmail.com
 gnome-extensions enable dash-to-panel@jderose9.github.com
 
-cat <<EOF > ~/.config/autostart/guake.desktop
+cat <<EOF > /.config/autostart/guake.desktop
 [Desktop Entry]
 Name=Guake Terminal
 Comment=Use the command line in a Quake-like terminal

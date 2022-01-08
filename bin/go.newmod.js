@@ -51,3 +51,8 @@ await $`echo '# Binaries for programs and plugins
 
 # Jetbrains IDE
 .idea/' > .gitignore`
+await $`.ONESHELL:
+SHELL:=bash
+.PHONY: build
+
+' > Makefile`
